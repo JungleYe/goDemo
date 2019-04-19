@@ -1,5 +1,4 @@
-```
-
+```golang
 package main
 
 import (
@@ -25,5 +24,4 @@ func main(){
 	//到 /usr/local/go/src/runtime/time.go去找对用的实现就可以了
 	time.Sleep(time.Second)
 }
-
 ```
