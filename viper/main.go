@@ -21,6 +21,8 @@ func main(){
 
 	env := viper.GetString("Env")
 	zkHost := viper.GetString(fmt.Sprintf("%s.zkHost",env))
-
 	log.Printf("the zkHost = %s",zkHost)
+
+	ips := viper.GetStringSlice("ip")
+	log.Printf("the ips = %v",ips)
 }
