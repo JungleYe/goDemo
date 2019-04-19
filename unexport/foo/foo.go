@@ -2,7 +2,7 @@ package foo
 
 import(
 	_ "unsafe"
-	_ "glgo/testcode/unexport/bar"
+	_ "goDemo/unexport/bar"
 )
 
 //go:linkname PrintBar bar.pb

@@ -1,6 +1,6 @@
 package main
 
-import "glgo/testcode/unexport/foo"
+import "goDemo/unexport/foo"
 
 func main(){
 	foo.PrintBar()
