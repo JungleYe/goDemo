@@ -1,0 +1,25 @@
+#表示url属性
+url: https://github.com/JungleYe
+
+#表示server.host
+server:
+  host: www.baidu.com
+
+#表示数组
+ip:
+  - 192.168.0.1
+  - 192.168.0.2
+  - 192.168.0.3
+
+#表示一些常量
+pi: 3.14
+hasChild: true
+name: "yaml"
+
+#环境选择 pro表示正式环境 dev表示测试环境
+Env: "dev"
+pro:
+  zkHost: 192.168.7.12
+
+dev:
+  zkHost: 127.0.0.1
