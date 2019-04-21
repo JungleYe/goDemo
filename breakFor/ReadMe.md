@@ -1,0 +1,1 @@
+> A "break" statement terminates execution of the innermost "for", "switch", or "select" statement within the same function.
