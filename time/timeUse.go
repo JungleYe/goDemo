@@ -25,6 +25,11 @@ func useTimeStamp(){
 	//打印时间间隔
 	log.Printf("the duration is %s",dr.String())
 
+	/**
+		ticker只要定义完成，从此刻开始计时，不需要任何其他的操作，每间隔固定时间都会触发；
+		timer定时器，是到了固定事件后会执行一次
+		如果timer定时器要实现ticker的效果，使用func (t *Timer) Reset(d Duration) bool来重置定时器
+	 */
 	//定时器1：N长时间之后触发
 	tmr := time.NewTimer(3 *time.Second)
 	var cnt int32
