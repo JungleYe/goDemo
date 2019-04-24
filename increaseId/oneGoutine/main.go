@@ -17,15 +17,10 @@ var wg sync.WaitGroup
 func main(){
 	runtime.GOMAXPROCS(5)
 	for i:= 0;i<1234567;i++{
-		wg.Add(1)
-		go func(){
-			num := GetId()
-			addSum(num)
-			wg.Done()
-		}()
+		num := GetId()
+		addSum(num)
 	}
-	wg.Wait()
-	fmt.Printf("the bad total = %d",Sum)	//741442659357
+	fmt.Printf("the oneGoutine total = %d",Sum)	// 762078456028
 	time.Sleep(5 * time.Second)
 }
 
