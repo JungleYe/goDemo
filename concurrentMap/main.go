@@ -3,8 +3,8 @@ package main
 import (
 	"sync"
 	"runtime"
-	"log"
 	"time"
+	"log"
 )
 
 type st struct{
@@ -26,13 +26,13 @@ type st struct{
 }
 
 func main(){
-	runtime.GOMAXPROCS(6)
+	runtime.GOMAXPROCS(50)
 	var mp map[string]st
 	mp = make(map[string]st)
 	mp["k"] = st{A:-1,B:2,Mutex:sync.Mutex{}}
 
 	//并发的修改map
-	for i:= 1;i<=100000;i++{
+	for i:= 1;i<=1000;i++{
 		go func(ii int){
 			v := mp["k"]
 			v.A = int32(ii)
@@ -46,20 +46,27 @@ func main(){
 			v.A8 = int32(ii)
 			v.A9 = int32(ii)
 			v.A10 = int32(ii)
-			v.Mutex.Lock()
+			//v.Mutex.Lock()
 			mp["k"] = v
-			v.Mutex.Unlock()
+			//v.Mutex.Unlock()
 		}(i)
-	}
 
-	for j:=0;j<=100000;j++{
 		go func(jj int){
 			v := mp["k"]
 			if v.A ==0{
 				log.Println("illegal happened!")
 			}
-		}(j)
+		}(i)
 	}
+
+	//for j:=0;j<=100000;j++{
+	//	go func(jj int){
+	//		v := mp["k"]
+	//		if v.A ==0{
+	//			log.Println("illegal happened!")
+	//		}
+	//	}(j)
+	//}
 
 	time.Sleep(500 * time.Second)
 }
